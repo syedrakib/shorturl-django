@@ -5,7 +5,10 @@ from .helpers import HTML_http_response
 # Create your views here.
 def index(request):
 	if request.method == "GET":
-		return render(request, 'shortener_form.html')
+		return render(
+			request=request, 
+			template_name='shortener_form.html'
+		)
 	elif request.method == "POST":
 		return HTML_http_response(200, "<b>process form</b>")
 	else:
