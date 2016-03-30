@@ -47,7 +47,20 @@ def index(request):
 		return HTML_http_response(200, "<b>restricted attempt</b>")
 
 def redirect(request, short_url):
-	return HTML_http_response(200, "<b>redirect %s</b>" % short_url)
+	try:
+		urlmapper_obj = URLMapper.objects.get(short_url=short_url)
+	except URLMapper.DoesNotExist:
+		bundle = {
+			'error_msg': "Requested short URL not found"
+		}
+		return render(
+			request=request, 
+			template_name='shortener_form.html', 
+			context=bundle,
+			status=404,
+		)
+	else:
+		return HttpResponseRedirect(urlmapper_obj.long_url)
 
 def inflate(request, short_url):
 	try:
