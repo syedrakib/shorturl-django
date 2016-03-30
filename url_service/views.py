@@ -14,9 +14,14 @@ def index(request):
 	elif request.method == "POST":
 		long_url = request.POST['long_url'].strip()
 		if not is_valid_URL(long_url):
+			bundle = {
+				'long_url': long_url,
+				'error_msg': "Please enter a valid URL"
+			}
 			return render(
 				request=request, 
 				template_name='shortener_form.html', 
+				context=bundle,
 				status=400,
 			)
 		else:

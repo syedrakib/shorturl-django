@@ -2,6 +2,13 @@
 	<head>
 		<title>Shorten URL</title>
 		<style>
+			#error_block{
+				background-color: #f00;
+				color: #fff;
+				padding: 10px;
+				margin: 20px;
+				width: 350px;
+			}
 			input{
 				margin: 5px;
 			}
@@ -26,12 +33,17 @@
 	</head>
 	<body>
 		<center>
+			{% if error_msg %}
+				<p id="error_block">
+					<strong>{{ error_msg }}</strong>
+				</p>
+			{% endif %}
 			<h1>Type in a URL to shorten it</h1>
 			<form action="{% url 'url_service:index' %}" method="post">
 				{% csrf_token %}
 				<p>
 					Your URL: <br />
-					<input type="text" name="long_url" size="128" />
+					<input type="text" name="long_url" size="128" {% if long_url %}value="{{ long_url}}"{% endif %} />
 				</p>
 				<p>
 					Generated short URL: <br />
