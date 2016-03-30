@@ -1,10 +1,11 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from .helpers import HTML_http_response
 
 # Create your views here.
 def index(request):
 	if request.method == "GET":
-		return HTML_http_response(200, "<b>show form</b>")
+		return render(request, 'shortener_form.html')
 	elif request.method == "POST":
 		return HTML_http_response(200, "<b>process form</b>")
 	else:
