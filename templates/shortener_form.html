@@ -61,7 +61,20 @@
 						Shortened URL: <b>{{ short_url|length }} characters</b>
 					{% endif %}
 				</p>
-                <button type="submit">Shorten</button>
+				<p>
+					{% if short_url %}
+						<button type="submit">Shorten again</button>
+						&nbsp;&nbsp;
+						<button 
+							type="reset" 
+							onclick="window.location.href='{% url 'url_service:index' %}'"
+						>
+							Clear form
+						</button>
+					{% else %}
+						<button type="submit">Shorten URL</button>
+					{% endif %}
+				</p>
 			</form>
 		</center>
 	</body>
