@@ -77,7 +77,9 @@ def inflate(request, short_url):
 		)
 	else:
 		bundle = {
-			'short_url': urlmapper_obj.short_url,
+			'short_url': request.build_absolute_uri(
+				reverse('url_service:redirect', args=(urlmapper_obj.short_url,))
+			),
 			'long_url': urlmapper_obj.long_url,
 		}
 		return render(
