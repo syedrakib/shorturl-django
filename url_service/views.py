@@ -1,5 +1,5 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from .helpers import HTML_http_response
 
 # Create your views here.
 def index(request):
@@ -15,10 +15,3 @@ def redirect(request, short_url):
 
 def inflate(request, short_url):
 	return HTML_http_response(200, "<b>inflate %s</b>" % short_url)
-
-def HTML_http_response(status_code, HTML_body):
-	return HttpResponse(
-		content = HTML_body,
-		content_type = "text/html",
-		status = status_code
-	)
