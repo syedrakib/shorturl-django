@@ -2,6 +2,9 @@ from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 from django.http import HttpResponse
 
+import random, string
+
+
 def HTML_http_response(status_code, HTML_body):
 	return HttpResponse(
 		content = HTML_body,
@@ -17,3 +20,10 @@ def is_valid_URL(a_url):
 		return False
 	else:
 		return True
+
+def generate_random_string(length):
+	randomizer = random.SystemRandom()
+	character_set = string.ascii_uppercase + string.ascii_lowercase + string.digits
+	return ''.join(randomizer.choice(character_set) for x in range(length))
+
+
