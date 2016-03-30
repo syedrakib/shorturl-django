@@ -35,7 +35,7 @@ def index(request):
 					# if our generated random string collides with an already existing short_url in DB,
 					# we will keep retrying until get_or_create() returns created=True
 					urlmapper_obj, created = URLMapper.objects.get_or_create(
-						short_url=generate_random_string(7),
+						short_url=generate_random_string(),
 						defaults={
 							'long_url': long_url
 						}

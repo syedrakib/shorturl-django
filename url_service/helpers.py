@@ -21,9 +21,10 @@ def is_valid_URL(a_url):
 	else:
 		return True
 
-def generate_random_string(length):
+def generate_random_string():
+	LENGTH_OF_FINAL_STRING = 6
 	randomizer = random.SystemRandom()
 	character_set = string.ascii_uppercase + string.ascii_lowercase + string.digits
-	return ''.join(randomizer.choice(character_set) for x in range(length))
+	return ''.join(randomizer.choice(character_set) for x in range(LENGTH_OF_FINAL_STRING))
 
 
