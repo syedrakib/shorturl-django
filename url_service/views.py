@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from .helpers import HTML_http_response, generate_random_string, is_valid_URL
+from .helpers import generate_random_string, is_valid_URL
 from .models import URLMapper
 
 # Create your views here.
@@ -44,7 +44,11 @@ def index(request):
 				reverse('url_service:inflate', args=(urlmapper_obj.short_url,))
 			)
 	else:
-		return HTML_http_response(200, "<b>restricted attempt</b>")
+		return HttpResponse(
+			content = "<b>restricted attempt</b>",
+			content_type = "text/html",
+			status = 400
+		)
 
 def redirect(request, short_url):
 	try:

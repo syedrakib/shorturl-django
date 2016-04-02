@@ -4,14 +4,6 @@ from django.http import HttpResponse
 
 import random, string
 
-
-def HTML_http_response(status_code, HTML_body):
-	return HttpResponse(
-		content = HTML_body,
-		content_type = "text/html",
-		status = status_code
-	)
-
 def is_valid_URL(a_url):
 	validate = URLValidator()
 	try:
