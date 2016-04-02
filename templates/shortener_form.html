@@ -2,6 +2,12 @@
 	<head>
 		<title>Shorten URL</title>
 		<style>
+			button{
+				padding: 10px;
+				width: 225px;
+				font-size: 15;
+				display: block;
+			}
 			#error_block{
 				background-color: #f00;
 				color: #fff;
@@ -23,12 +29,6 @@
 			}
 			input[name="short_url"]{
 				background-color: #eee;
-			}
-			button{
-				padding: 10px;
-				width: 225px;
-				font-size: 15;
-				display: block;
 			}
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,6 +76,14 @@
 					{% endif %}
 				</p>
 			</form>
+			<hr style="margin-top:30px;" />
+			<div>
+				Source code available<br />
+				on <a 
+					href="https://github.com/syedrakib/shorturl-django" 
+					target="_blank"
+				>Github</a>.
+			</div>
 		</center>
 	</body>
 </html>
