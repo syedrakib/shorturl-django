@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'url_service',
+    'django_nose',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -120,3 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Define nose as Test Runner
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
