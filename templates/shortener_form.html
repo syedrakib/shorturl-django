@@ -66,10 +66,17 @@
 						<button type="submit">Shorten again</button>
 						&nbsp;&nbsp;
 						<button 
-							type="reset" 
+							type="button" 
 							onclick="window.location.href='{% url 'url_service:index' %}'"
 						>
 							Clear form
+						</button>
+						&nbsp;&nbsp;
+						<button 
+							type="button" 
+							onclick="window.location.href='{{ short_url }}'"
+						>
+							Visit short URL
 						</button>
 					{% else %}
 						<button type="submit">Shorten URL</button>
